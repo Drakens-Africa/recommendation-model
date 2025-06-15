@@ -4,10 +4,11 @@ from deepctr.feature_column import build_input_features, input_from_feature_colu
 from deepctr.layers.core import PredictionLayer, DNN
 from deepctr.layers.utils import combined_dnn_input
 
+
 def Shared_Bottom(dnn_feature_columns, num_tasks=None, task_types=None, task_names=None, 
     bottom_dnn_units=[128, 128], tower_dnn_units_lists=[[64, 32], [64, 32]], 
     l2_reg_embedding=0.00001, l2_reg_dnn=0, seed=1024, dnn_dropout=0, dnn_activation='relu', dnn_use_bn=False):
-    """初始化Shared-Bottom多任务学习网络的框架
+    """实例化Shared-Bottom多任务学习网络的框架
 
     :param _type_ dnn_feature_columns: 一个iterable，包含所有的特征，用于喂给模型的deep part
     :param _type_ num_tasks: 任务的个数，等同于输出的个数，必须大于1, defaults to None
