@@ -45,7 +45,7 @@ def ESSM(dnn_feature_columns, task_type='binary', task_names=['ctr', 'ctcvr'],
     cvr_pred = PredictionLayer(task_type)(cvr_logit)
     ctcvr_pred = tf.keras.layers.Multiply(name=task_names[1])([ctr_pred, cvr_pred])
 
-    model = tf.keras.models.Model(inputs=inputs_list, outputs=[ctr_pred, cvr_pred])
+    model = tf.keras.models.Model(inputs=inputs_list, outputs=[ctr_pred, ctcvr_pred])
     return model
 
 
